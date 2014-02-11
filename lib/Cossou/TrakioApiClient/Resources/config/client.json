@@ -1,0 +1,52 @@
+{
+    "operations": {
+        "identify": {
+            "description": "Identify user.",
+            "httpMethod": "POST",
+            "uri": "identify",
+            "parameters": {
+                "data": {
+                    "location": "json",
+                    "type": "array",
+                    "required": true
+                }
+            }
+        },
+        "alias": {
+            "description": "Alias.",
+            "httpMethod": "POST",
+            "uri": "alias",
+            "parameters": {
+                "data": {
+                    "location": "json",
+                    "type": "array",
+                    "required": true
+                }
+            }
+        },
+        "track": {
+            "description": "Track",
+            "httpMethod": "POST",
+            "uri": "track",
+            "parameters": {
+                "data": {
+                    "location": "json",
+                    "type": "array",
+                    "required": true
+                }
+            }
+        },
+        "annotate": {
+            "description": "Annotate",
+            "httpMethod": "POST",
+            "uri": "annotate",
+            "parameters": {
+                "data": {
+                    "location": "json",
+                    "type": "array",
+                    "required": true
+                }
+            }
+        }
+    }
+}
