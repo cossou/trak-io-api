@@ -22,6 +22,8 @@ Install via [Composer](http://getcomposer.org/):
 
 Documentation: http://docs.trak.io/
 
+## Examples
+
 Quick [Identify](http://docs.trak.io/identify.html) example:
 
 ```php
