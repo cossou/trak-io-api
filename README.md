@@ -7,11 +7,11 @@ Install via [Composer](http://getcomposer.org/):
 ```
 {
     "require": {
-        "cossou/track-io-api-client": "1.0.*"
+        "cossou/trak-io-api-client": "1.0.*"
     }
 }
 
-````
+```
 
 ## Methods available
 
@@ -36,6 +36,57 @@ $client = TrakioClient::factory(array(
 $command = $client->getCommand(
     'identify', 
     array('data' => array('distinct_id' => 123, 'properties' => array('name' => 'Hélder Duarte'))
+    )
+);
+
+try {
+    $response = $client->execute($command);
+    var_dump($response);
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+Quick [Alias](http://docs.trak.io/alias.html) example:
+
+```php
+$command = $client->getCommand(
+    'alias', 
+    array('data' => array('distinct_id' => 1, 'alias' => 'cossou@gmail.com')
+    )
+);
+
+try {
+    $response = $client->execute($command);
+    var_dump($response);
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+Quick [Track](http://docs.trak.io/track.html) example:
+
+```php
+$command = $client->getCommand(
+    'track', 
+    array('data' => array('distinct_id' => 1, 'event' => 'Page view', 'channel' => 'Web site')
+    )
+);
+
+try {
+    $response = $client->execute($command);
+    var_dump($response);
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+Quick [Annotate](http://docs.trak.io/annotate.html) example:
+
+```php
+$command = $client->getCommand(
+    'annotate', 
+    array('data' => array('event' => 'Deployed update', 'channel' => 'Web site', 'properties' => array('details' => 'Added new super awesome feature!', 'version' => 'V324'))
     )
 );
 
