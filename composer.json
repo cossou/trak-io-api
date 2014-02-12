@@ -3,7 +3,7 @@
     "type": "library",
     "description": "PHP Trak.io Api Client built on Guzzle",
     "keywords": ["trak", "trak.io", "api", "client", "guzzle"],
-    "homepage": "https://github.com/cossou/track-io-api-client",
+    "homepage": "https://github.com/cossou/trak-io-api",
     "license": "MIT",
     "authors": [
         {
