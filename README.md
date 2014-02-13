@@ -28,78 +28,64 @@ Documentation: http://docs.trak.io/
 
 Quick [Identify](http://docs.trak.io/identify.html) example:
 
-```php
+```
+
 require_once 'vendor/autoload.php';
 
-use Cossou\TrakioApiClient\Client\TrakioClient;
+use Cossou\Trakio;
 
-$client = TrakioClient::factory(array(
+$trakio = Trakio::factory(array(
     'token' => 'YOUR-API-TOKEN'
 ));
 
-$command = $client->getCommand(
-    'identify', 
-    array('data' => array('distinct_id' => 123, 'properties' => array('name' => 'Hélder Duarte'))
-    )
-);
-
 try {
-    $response = $client->execute($command);
+    $response = $trakio->identify(array('distinct_id' => 123, 'properties' => array('name' => 'Hélder Duarte')));
     var_dump($response);
 } catch(Exception $e) {
     echo $e->getMessage();
 }
+
 ```
 
-Quick [Alias](http://docs.trak.io/alias.html) example:
+## Laravel
 
-```php
-$command = $client->getCommand(
-    'alias', 
-    array('data' => array('distinct_id' => 1, 'alias' => 'cossou@gmail.com')
-    )
-);
+Add to your app/config/app.php file and scroll down to your providers and add
 
-try {
-    $response = $client->execute($command);
-    var_dump($response);
-} catch(Exception $e) {
-    echo $e->getMessage();
-}
+```
+'providers' => array(
+    ...
+    'Cossou\TrakioServiceProvider',
+)
 ```
 
-Quick [Track](http://docs.trak.io/track.html) example:
+And the alias:
 
-```php
-$command = $client->getCommand(
-    'track', 
-    array('data' => array('distinct_id' => 1, 'event' => 'Page view', 'channel' => 'Web site')
-    )
-);
+```
+'aliases' => array(
+	...
+   	'Trakio'		  => 'Cossou\Facades\Trakio',
 
-try {
-    $response = $client->execute($command);
-    var_dump($response);
-} catch(Exception $e) {
-    echo $e->getMessage();
-}
 ```
 
-Quick [Annotate](http://docs.trak.io/annotate.html) example:
+And finally you run `php artisan config:publish cossou/trak-io-api-client` and fill in your API key.
 
-```php
-$command = $client->getCommand(
-    'annotate', 
-    array('data' => array('event' => 'Deployed update', 'channel' => 'Web site', 'properties' => array('details' => 'Added new super awesome feature!', 'version' => 'V324'))
-    )
-);
+And that's it!
 
-try {
-    $response = $client->execute($command);
-    var_dump($response);
-} catch(Exception $e) {
-    echo $e->getMessage();
+### Quick Laravel Example
+
+```
+Route::get('/', function()
+{
+	$trak = new Trakio;
+
+	try {
+		$response = $trak::identify(array('distinct_id' => 123, 'properties' => array('name' => 'Hélder Duarte')));
+		dd($response);
+	} catch(Exception $e) {
+		dd($e->getMessage());
+	}	
 }
+
 ```
 
 ## License
