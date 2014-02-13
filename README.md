@@ -28,7 +28,7 @@ Documentation: http://docs.trak.io/
 
 Quick [Identify](http://docs.trak.io/identify.html) example:
 
-```
+```php
 
 require_once 'vendor/autoload.php';
 
@@ -51,7 +51,7 @@ try {
 
 Add to your app/config/app.php file and scroll down to your providers and add
 
-```
+```php
 'providers' => array(
     ...
     'Cossou\TrakioServiceProvider',
@@ -60,7 +60,7 @@ Add to your app/config/app.php file and scroll down to your providers and add
 
 And the alias:
 
-```
+```php
 'aliases' => array(
 	...
    	'Trakio'		  => 'Cossou\Facades\Trakio',
@@ -73,7 +73,7 @@ And that's it!
 
 ### Quick Laravel Example
 
-```
+```php
 Route::get('/', function()
 {
 	$trak = new Trakio;
