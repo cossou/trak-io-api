@@ -48,8 +48,6 @@ class TrakioClientTest extends \PHPUnit_Framework_TestCase
 
     public function provideConfigValues()
     {
-        return array(
-            array('token')
-        );
+        return 'iamatoken';
     }
 }
