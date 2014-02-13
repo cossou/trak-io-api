@@ -16,7 +16,9 @@
     },
     "autoload": {
         "psr-0": {
-            "Cossou\\TrakioApiClient": "lib/"
+            "Cossou\\TrakioApiClient": "lib/",
+            "Cossou\\TrakioApiClient\\Tests": "tests/"
+
         }
     },
     "minimum-stability": "stable",
