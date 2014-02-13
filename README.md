@@ -9,7 +9,7 @@ Install via [Composer](http://getcomposer.org/):
 ```
 {
     "require": {
-        "cossou/trak-io-api-client": "1.0.*"
+        "cossou/trak-io-api-client": "1.0.*@dev"
     }
 }
 
