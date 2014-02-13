@@ -3,7 +3,7 @@
 <phpunit bootstrap="./vendor/autoload.php" colors="true">
 
     <testsuites>
-        <testsuite name="TrakioApiClient test suite">
+        <testsuite name="Trakio test suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
