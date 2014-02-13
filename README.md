@@ -1,5 +1,7 @@
 # Trak.io Api Client
 
+[![Build Status](https://travis-ci.org/cossou/trak-io-api.png?branch=master)](https://travis-ci.org/cossou/trak-io-api)
+
 ## Installation 
 
 Install via [Composer](http://getcomposer.org/):

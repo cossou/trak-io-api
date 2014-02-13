@@ -19,8 +19,10 @@ class TrakioClientTest extends \PHPUnit_Framework_TestCase
 
         $client = TrakioClient::factory($config);
 
+        $defaultOption = $client->getDefaultOption('headers/X-Token');
+
         $this->assertInstanceOf('\Cossou\TrakioApiClient\Client\TrakioClient', $client);
-        $this->assertEquals($config['token'], $client->getDefaultOption('headers/X-Token')['token']);
+        $this->assertEquals($config['token'], $defaultOption['token']);
     }
 
     /**
