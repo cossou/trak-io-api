@@ -1,6 +1,6 @@
 <?php
 
-use Cossou\TrakioApiClient\Client\TrakioClient;
+use Cossou\Trakio;
 
 class TrakioTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,7 +19,7 @@ class TrakioTest extends \PHPUnit_Framework_TestCase
 
         $defaultOption = $client->getDefaultOption('headers/X-Token');
 
-        $this->assertInstanceOf('\Cossou\TrakioApiClient\Client\TrakioClient', $client);
+        $this->assertInstanceOf('\Cossou\Trakio', $client);
         $this->assertEquals($config['token'], $defaultOption['token']);
     }
 
@@ -30,7 +30,7 @@ class TrakioTest extends \PHPUnit_Framework_TestCase
     {
         $config = array();
 
-        $client = TrakioClient::factory($config);
+        $client = Trakio::factory($config);
     }
 
     /**
@@ -42,7 +42,7 @@ class TrakioTest extends \PHPUnit_Framework_TestCase
             'token' => ''
         );
 
-        $client = TrakioClient::factory($config);
+        $client = Trakio::factory($config);
     }
 
 

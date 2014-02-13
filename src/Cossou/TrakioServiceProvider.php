@@ -1,6 +1,6 @@
 <?php 
 
-namespace Cossou\TrakioApiClient\Client;
+namespace Cossou;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -8,16 +8,18 @@ class TrakioServiceProvider extends ServiceProvider {
 
     public function boot()
     {
-        $this->package('cossou/trakioapiclient', 'cossou/trakioapiclient', __DIR__.'/../');
+        $this->package('cossou/trak-io-api-client', 'cossou/trak-io-api-client', __DIR__.'/../');
     }
 
     public function register()
     {
         $this->app['trakio'] = $this->app->share(function($app)
         {
-            $config = $app['config']['cossou/trakioapiclient'];
+            $token = $app['config']['cossou/trak-io-api-client::token'];
 
-            return new TrakioClient::factory($config);
+            $client = new Trakio;
+
+            return $client::factory(array('token' => $token));
         });
     }
 

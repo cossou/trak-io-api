@@ -34,4 +34,53 @@ class Trakio extends Client
 
         return $client;
     }
+
+    public function identify($data = null)
+    {
+        $command = $this->getCommand('identify', array('data' => $data));
+
+        try {
+            $response = $this->execute($command);
+            return $response;
+        } catch(Exception $e) {
+            return $e;
+        }
+    }
+
+    public function alias($data = null)
+    {
+        $command = $this->getCommand('alias', array('data' => $data));
+
+        try {
+            $response = $this->execute($command);
+            return $response;
+        } catch(Exception $e) {
+            return $e;
+        }
+    }
+
+    public function track($data = null)
+    {
+        $command = $this->getCommand('track', array('data' => $data));
+
+        try {
+            $response = $this->execute($command);
+            return $response;
+        } catch(Exception $e) {
+            return $e;
+        }
+    }
+
+
+    public function annotate($data = null)
+    {
+        $command = $this->getCommand('annotate', array('data' => $data));
+
+        try {
+            $response = $this->execute($command);
+            return $response;
+        } catch(Exception $e) {
+            return $e;
+        }
+    }
 }
