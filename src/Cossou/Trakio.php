@@ -10,25 +10,18 @@ use Guzzle\Common\Exception\InvalidArgumentException;
 
 class Trakio extends Client
 {
-    public static function factory($config = array())
+    public static function factory($token, $config = array())
     {
-        $default = array('base_url' => 'https://api.trak.io/v1');
+        $default = array('host' => 'api.trak.io/v1', 'https' => true);
 
-        $required = array(
-            'token',
-        );
+        if (empty($token) || is_null($token))
+            throw new InvalidArgumentException("Token must not be blank.");
 
-        foreach ($required as $value) {
-            if (empty($config[$value])) {
-                throw new InvalidArgumentException("Argument '{$value}' must not be blank.");
-            }
-        }
+        $config = Collection::fromConfig($config, $default, array());
 
-        $config = Collection::fromConfig($config, $default, $required);
+        $client = new self(($config->get('https') ? 'https://' : 'http://') . $config->get('host'), $config);
 
-        $client = new self($config->get('base_url'), $config);
-
-        $client->setDefaultOption('headers/X-Token', $config['token']);
+        $client->setDefaultOption('headers/X-Token', $token);
 
         $client->setDescription(ServiceDescription::factory(__DIR__.'/Resources/config/client.json'));
 
