@@ -9,18 +9,15 @@ class TrakioTest extends \PHPUnit_Framework_TestCase
      *
      * @dataProvider provideConfigValues
      */
-    public function testFactoryReturnsClient($token)
+    public function testInitReturnsClient($token)
     {
-        $config = array(
-            'token' => $token,
-        );
 
-        $client = Trakio::factory($config);
+        $client = Trakio::init($token, array());
 
         $defaultOption = $client->getDefaultOption('headers/X-Token');
 
         $this->assertInstanceOf('\Cossou\Trakio', $client);
-        $this->assertEquals($config['token'], $defaultOption['token']);
+        $this->assertEquals($token, $defaultOption['token']);
     }
 
     /**
@@ -36,6 +33,16 @@ class TrakioTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \Guzzle\Common\Exception\InvalidArgumentException
      */
+    public function testInitReturnsExceptionOnNullArguments()
+    {
+        $config = array();
+
+        $client = Trakio::init($config);
+    }
+
+    /**
+     * @expectedException \Guzzle\Common\Exception\InvalidArgumentException
+     */
     public function testFactoryReturnsExceptionOnBlankArguments()
     {
         $config = array(
@@ -43,6 +50,30 @@ class TrakioTest extends \PHPUnit_Framework_TestCase
         );
 
         $client = Trakio::factory($config);
+    }
+
+    /**
+     * @expectedException \Guzzle\Common\Exception\InvalidArgumentException
+     */
+    public function testInitReturnsExceptionOnBlankArguments()
+    {
+        $token = '';
+
+        $client = Trakio::init($token);
+    }
+
+    /**
+     * @param $token
+     *
+     * @dataProvider provideConfigValues
+     *
+     * @expectedException \Guzzle\Common\Exception\InvalidArgumentException
+     */
+    public function testIdentifyReturnsException($token)
+    {
+        $client = Trakio::init($token);
+
+        $client->identify();
     }
 
 
