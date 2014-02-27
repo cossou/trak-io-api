@@ -39,7 +39,7 @@ class Trakio extends Client
 
         $client = new self(($config->get('https') ? 'https://' : 'http://') . $config->get('host'), $config);
 
-        $client->setDefaultOption('headers/X-Token', $config['token']);
+        $client->setDefaultOption('headers/X-Token', $token);
 
         $client->setDescription(ServiceDescription::factory(__DIR__.'/Resources/config/client.json'));
 
