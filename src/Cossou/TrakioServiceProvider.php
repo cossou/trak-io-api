@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Cossou;
 
@@ -15,11 +15,12 @@ class TrakioServiceProvider extends ServiceProvider {
     {
         $this->app['trakio'] = $this->app->share(function($app)
         {
-            $token = $app['config']['cossou/trak-io-api-client::token'];
+            $token  = $app['config']['cossou/trak-io-api-client::token'];
+            $config = $app['config']['cossou/trak-io-api-client::config'];
 
             $client = new Trakio;
 
-            return $client::factory(array('token' => $token));
+            return $client::init($token, $config);
         });
     }
 
