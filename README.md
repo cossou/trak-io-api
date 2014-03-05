@@ -9,7 +9,7 @@ Install via [Composer](http://getcomposer.org/):
 ```
 {
     "require": {
-        "cossou/trak-io-api-client": "1.0.*@dev"
+        "cossou/trak-io-api-client": "0.0.2"
     }
 }
 
@@ -37,6 +37,9 @@ require_once 'vendor/autoload.php';
 use Cossou\Trakio;
 
 $trakio = Trakio::init('YOUR-API-TOKEN');
+
+// or
+// $trakio = Trakio::init('YOUR-API-TOKEN', array('distinct_id' => 123));
 
 try {
     $response = $trakio->identify(array('distinct_id' => 123, 'properties' => array('name' => 'Hélder Duarte')));
