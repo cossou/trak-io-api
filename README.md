@@ -1,6 +1,10 @@
 # Trak.io Api Client
 
 [![Build Status](https://travis-ci.org/cossou/trak-io-api.png?branch=master)](https://travis-ci.org/cossou/trak-io-api)
+[![Latest Stable Version](https://poser.pugx.org/cossou/trak-io-api-client/v/stable.png)](https://packagist.org/packages/cossou/trak-io-api-client) 
+[![Total Downloads](https://poser.pugx.org/cossou/trak-io-api-client/downloads.png)](https://packagist.org/packages/cossou/trak-io-api-client) 
+[![Latest Unstable Version](https://poser.pugx.org/cossou/trak-io-api-client/v/unstable.png)](https://packagist.org/packages/cossou/trak-io-api-client) 
+[![License](https://poser.pugx.org/cossou/trak-io-api-client/license.png)](https://packagist.org/packages/cossou/trak-io-api-client)
 
 ## Installation 
 
@@ -9,7 +13,7 @@ Install via [Composer](http://getcomposer.org/):
 ```
 {
     "require": {
-        "cossou/trak-io-api-client": "0.0.2"
+        "cossou/trak-io-api-client": "1.0.*"
     }
 }
 
