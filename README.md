@@ -21,6 +21,8 @@ Install via [Composer](http://getcomposer.org/):
 * alias
 * track
 * annotate
+* distinct_id
+* channel
 
 Documentation: http://docs.trak.io/
 
@@ -34,9 +36,7 @@ require_once 'vendor/autoload.php';
 
 use Cossou\Trakio;
 
-$trakio = Trakio::factory(array(
-    'token' => 'YOUR-API-TOKEN'
-));
+$trakio = Trakio::init('YOUR-API-TOKEN');
 
 try {
     $response = $trakio->identify(array('distinct_id' => 123, 'properties' => array('name' => 'Hélder Duarte')));
