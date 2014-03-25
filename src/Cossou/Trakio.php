@@ -94,7 +94,8 @@ class Trakio extends Client
 
     public function track($data = null)
     {
-        $data = $this->inject_distinct_id($data)->inject_channel($data);
+        $data = $this->inject_distinct_id($data);
+        $data = $this->inject_channel($data);
 
         $required = array('distinct_id', 'event');
 
