@@ -134,6 +134,26 @@ class Trakio extends Client
             return $e;
         }
     }
+    
+    public function company($data = null)
+    {
+
+        $required = array('company_id');
+
+        self::validate($required, $data);
+
+        $command = $this->getCommand('company', array('data' => $data));
+
+        try
+        {
+            $response = $this->execute($command);
+            return $response;
+        }
+        catch(Exception $e)
+        {
+            return $e;
+        }
+    }
 
     public function distinct_id($distinct_id = null)
     {

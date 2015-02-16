@@ -36,6 +36,18 @@
                 }
             }
         },
+        "company": {
+            "description": "Company",
+            "httpMethod": "POST",
+            "uri": "company",
+            "parameters": {
+                "data": {
+                    "location": "json",
+                    "type": "array",
+                    "required": true
+                }
+            }
+        },
         "annotate": {
             "description": "Annotate",
             "httpMethod": "POST",
